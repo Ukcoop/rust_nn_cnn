@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "rust_nn_cnn",
+    "test_enviornment",
+]
+resolver = "2"

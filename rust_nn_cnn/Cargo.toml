@@ -1,0 +1,25 @@
+[package]
+name = "rust_nn_cnn"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+burn = { version = "0.18", features = ["autodiff", "train"] }
+burn-wgpu = { version = "0.18" }
+burn-autodiff = { version = "0.18" }
+serde = { version = "1", features = ["derive"] }
+rmp-serde = "1"
+tar = "0.4"
+tempfile = "3"
+
+[lints.clippy]
+needless_return = "allow"
+needless_range_loop = "allow"
+
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+
+redundant_clone = "deny"
+implicit_clone = "deny"
+cloned_instead_of_copied = "deny"
