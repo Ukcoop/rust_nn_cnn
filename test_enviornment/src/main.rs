@@ -3,7 +3,7 @@ use std::fs;
 use std::io::Read;
 use std::time::Instant;
 
-use rust_nn_cnn::NeuralNetwork;
+use rust_nn_cnn::{GpuBackend, NeuralNetwork};
 
 fn read_idx_images(path: &str) -> Result<Vec<f32>> {
     let mut data = Vec::new();
@@ -78,10 +78,9 @@ fn main() -> Result<()> {
                 "no checkpoint found or failed to load ({}), starting fresh",
                 e
             );
-            NeuralNetwork::new(&[in_dim, 256, 256, out_dim], 128)
+            NeuralNetwork::new(&[in_dim, 256, 256, out_dim], 128, 1e-3, GpuBackend::Default)
         }
-    }
-    .with_learning_rate(1e-3);
+    };
 
     // Train until loss is below threshold
     let mut epoch = 0usize;

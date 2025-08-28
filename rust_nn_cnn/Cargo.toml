@@ -1,12 +1,15 @@
 [package]
 name = "rust_nn_cnn"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 
 [dependencies]
 burn = { version = "0.18", features = ["autodiff", "train"] }
 burn-wgpu = { version = "0.18" }
 burn-autodiff = { version = "0.18" }
+burn-ndarray = { version = "0.18" }
+wgpu = "0.20"
+pollster = "0.3"
 serde = { version = "1", features = ["derive"] }
 rmp-serde = "1"
 tar = "0.4"
